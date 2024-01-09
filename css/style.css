@@ -1,0 +1,35 @@
+/* #region VARIABLES */
+
+/* #endregion VARIABLES */
+
+/* #region TYPOGRAPHY */
+
+/* #endregion TYPOGRAPHY */
+
+/* #region COMMON */
+
+/* #endregion COMMON */
+
+/* #region HEADER */
+
+/* #endregion HEADER */
+
+/* #region MAIN */
+form {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.rate {
+    white-space: nowrap;
+}
+
+/* #endregion MAIN */
+
+/* #region FOOTER */
+
+/* #endregion FOOTER */
+
+/* #region MEDIA QUERIES */
+
+/* #endregion MEDIA QUERIES */
