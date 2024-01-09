@@ -40,6 +40,9 @@ $hotels = [
 
 ];
 
+$is_parking = $_GET["is-parking"];
+$hotel_rate = $_GET["hotel-rate"];
+
 ?>
 
 <!DOCTYPE html>
@@ -76,8 +79,8 @@ $hotels = [
         <main>
             <form action="index.php" method="get" class="my-4 d-flex gap-5 align-items-center">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="true" name="only-parking" id="only-parking">
-                    <label class="form-check-label" for="only-parking">
+                    <input class="form-check-input" type="checkbox" value="true" name="is-parking" id="is-parking">
+                    <label class="form-check-label" for="is-parking">
                         Only Parking
                     </label>
                 </div>
@@ -102,22 +105,47 @@ $hotels = [
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($hotels as $hotel) {
-                            echo "<tr>";
-
-                            foreach ($hotel as $feature => $result) {
-                                if ($feature === "parking" && $result === true) {
-                                    echo "<td>Yes</td>";
-                                } elseif ($feature === "parking" && $result === false) {
-                                    echo "<td>No</td>";
-                                } else {
-                                    echo
-                                    "<td>$result</td>";
+                        # Se only-parking non è checkato
+                        if (!$is_parking) {
+                            foreach ($hotels as $hotel) {
+                                if ($hotel["vote"] >= $hotel_rate) {
+                                    echo "<tr>";
+                                    foreach ($hotel as $feature => $result) {
+                                        if ($feature === "parking" && $result === true) {
+                                            echo "<td>Yes</td>";
+                                        } elseif ($feature === "parking" && $result === false) {
+                                            echo "<td>No</td>";
+                                        } else {
+                                            echo
+                                            "<td>$result</td>";
+                                        }
+                                    }
+                                    echo "</tr>";
                                 }
                             }
-
-                            echo "</tr>";
                         }
+
+                        # Se only-parking è checkato
+                        elseif ($is_parking) {
+                            foreach ($hotels as $hotel) {
+                                if ($hotel["vote"] >= $hotel_rate && $hotel["parking"]) {
+                                    echo "<tr>";
+                                    foreach ($hotel as $feature => $result) {
+                                        if ($feature === "parking" && $result === true) {
+                                            echo "<td>Yes</td>";
+                                        } elseif ($feature === "parking" && $result === false) {
+                                            echo "<td>No</td>";
+                                        } else {
+                                            echo
+                                            "<td>$result</td>";
+                                        }
+                                    }
+                                    echo "</tr>";
+                                }
+                            }
+                        }
+
+
                         ?>
                     </tbody>
                 </table>
