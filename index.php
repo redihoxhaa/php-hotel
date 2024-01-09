@@ -144,8 +144,6 @@ $hotel_rate = $_GET["hotel-rate"];
                                 }
                             }
                         }
-
-
                         ?>
                     </tbody>
                 </table>

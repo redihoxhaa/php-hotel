@@ -29,6 +29,10 @@ table {
     overflow: hidden;
 }
 
+.rate {
+    width: 20vw;
+}
+
 /* #endregion MAIN */
 
 /* #region FOOTER */
