@@ -88,6 +88,40 @@ $hotels = [
                 <button class="btn btn-primary">Submit</button>
             </form>
 
+            <div class="hotels-list">
+                <table class="table table-striped">
+                    <thead class="table-primary">
+                        <tr>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Parking</th>
+                            <th scope="col">Vote</th>
+                            <th scope="col">Distance to center</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($hotels as $hotel) {
+                            echo "<tr>";
+
+                            foreach ($hotel as $feature => $result) {
+                                if ($feature === "parking" && $result === true) {
+                                    echo "<td>Yes</td>";
+                                } elseif ($feature === "parking" && $result === false) {
+                                    echo "<td>No</td>";
+                                } else {
+                                    echo
+                                    "<td>$result</td>";
+                                }
+                            }
+
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </main>
         <!-- /Main -->
 

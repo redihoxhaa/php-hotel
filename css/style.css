@@ -24,6 +24,11 @@ form {
     white-space: nowrap;
 }
 
+table {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 /* #endregion MAIN */
 
 /* #region FOOTER */
